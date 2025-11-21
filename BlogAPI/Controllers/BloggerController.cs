@@ -38,7 +38,30 @@ namespace BlogAPI.Controllers
                 return NotFound(new { message = ex.Message, result = "" });
             }
 
+        }
 
+        [HttpGet]
+        public ActionResult GetBloggers() 
+        {
+            try
+            {
+
+                using (BlogDbContext context = new BlogDbContext())
+                {
+                    var bloggerek = context.blogger.ToArray();
+
+                    if (bloggerek != null)
+                    {
+                        return Ok(new { result = bloggerek });
+                    }
+
+                    return NotFound(new { message = "nincsenek bloggerek" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new {message = ex.Message, result = ""});
+            }
         }
     }
 }
