@@ -82,5 +82,46 @@ namespace BlogAPI.Controllers
                 return NotFound(new { message = ex.Message, result = "" });
             }
         }
+
+        [HttpGet("GetByIdwithPost")]
+        public ActionResult GetBloggersWithPosts(int id)
+        {
+            try
+            {
+
+                using (BlogDbContext context = new BlogDbContext())
+                {
+                    var bloggersWithPosts = context.blogger.Include(x => x.Posts).FirstOrDefault(x => x.Id == id);
+
+                    var blogger = new { Blogger = bloggersWithPosts.Name, Category = bloggersWithPosts.Posts.Select(p => new { p.Category, p.Description }) };
+                    return Ok(new { result = blogger });
+                }
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { message = ex.Message, result = "" });
+            }
+        }
+
+        [HttpGet("GetBloggerPostCount")]
+        public ActionResult GetBloggerPostsCount()
+        {
+            try
+            {
+                using (BlogDbContext context = new BlogDbContext())
+                {
+                    var bloggersWithPosts = context.blogger
+                        .Include(x => x.Posts)
+                        .ToArray()
+                        .Select(b => new { b.Name, b.Posts.Count });
+                    
+                    return Ok(new { result = bloggersWithPosts });
+                }
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { message = ex.Message, result = "" });
+            }
+        }
     }
 }
