@@ -22,5 +22,7 @@ namespace BlogAPI.Models
         public DateTime RegTime { get; set; } = DateTime.Now;
         public DateTime ModTime { get; set; } = DateTime.Now;
 
+        public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
+
     }
 }
