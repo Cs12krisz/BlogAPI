@@ -54,10 +54,6 @@ namespace BlogAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<int>("BloggerId")
                         .HasColumnType("int");
 
@@ -86,7 +82,7 @@ namespace BlogAPI.Migrations
 
                     b.HasIndex("BloggerId");
 
-                    b.ToTable("Post");
+                    b.ToTable("post");
                 });
 
             modelBuilder.Entity("BlogAPI.Models.Post", b =>

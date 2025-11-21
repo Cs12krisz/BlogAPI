@@ -11,7 +11,6 @@ namespace BlogAPI.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public bool IsCommentEnable { get; set; } = true;
-        public string Author { get; set; }
         public DateTime Regtime { get; set; } = DateTime.Now;
         public DateTime ModTime { get; set; } = DateTime.Now;
 

@@ -14,5 +14,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BlogAPI.Controllers.PostController",
+    "Method": "AddNewPost",
+    "RelativePath": "api/Post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addPostDto",
+        "Type": "BlogAPI.Models.Dtos.AddPostDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
