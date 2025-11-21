@@ -2,6 +2,7 @@
 using BlogAPI.Models.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Controllers
 {
@@ -61,6 +62,24 @@ namespace BlogAPI.Controllers
             catch (Exception ex)
             {
                 return NotFound(new {message = ex.Message, result = ""});
+            }
+        }
+
+        [HttpGet("withPost")]
+        public ActionResult GetBloggersWithPosts()
+        {
+            try
+            {
+
+                using (BlogDbContext context = new BlogDbContext())
+                {
+                    var bloggersWithPosts = context.blogger.Include(blogger => blogger.Posts).ToArray();
+                    return Ok(new { result = bloggersWithPosts });
+                }
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { message = ex.Message, result = "" });
             }
         }
     }

@@ -26,6 +26,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BlogAPI.Controllers.BloggerController",
+    "Method": "GetBloggersWithPosts",
+    "RelativePath": "api/Blogger/withPost",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BlogAPI.Controllers.PostController",
     "Method": "AddNewPost",
     "RelativePath": "api/Post",

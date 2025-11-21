@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace BlogAPI.Models
 {
@@ -16,6 +17,7 @@ namespace BlogAPI.Models
 
         public int BloggerId { get; set; }
 
+        [JsonIgnore]
         public virtual Blogger Bloggers { get; set; }
 
     }

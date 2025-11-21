@@ -46,6 +46,18 @@
         }
       }
     },
+    "/api/Blogger/withPost": {
+      "get": {
+        "tags": [
+          "Blogger"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Post": {
       "post": {
         "tags": [
